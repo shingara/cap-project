@@ -14,7 +14,7 @@ class ProjectsControllerTest < ActionController::TestCase
 
   def test_should_create_project
     assert_difference('Project.count') do
-      post :create, :project => { }
+      post :create, :project => {:title => 'title', :description => 'description' }
     end
 
     assert_redirected_to project_path(assigns(:project))

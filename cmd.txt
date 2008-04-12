@@ -1,4 +1,7 @@
 rails cap-project
 ruby script/generate scaffold project title:string description:string 
 rake db:migrate
-rake test:units
+rake test
+ruby script/generate scaffold task title:string description:string project_id:integer 
+rake db:migrate
+rake test
