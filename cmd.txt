@@ -1,2 +1,4 @@
 rails cap-project
 ruby script/generate scaffold project title:string description:string 
+rake db:migrate
+rake test:units
