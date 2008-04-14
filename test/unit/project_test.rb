@@ -26,10 +26,18 @@ class ProjectTest < ActiveSupport::TestCase
   end
 
   def test_insert
-    assert_equal 2, Project.count
-    @project.title = 'title'
-    @project.description = 'description'
-    @project.save
-    assert_equal 3, Project.count
+    assert_difference('Project.count') do
+      @project.title = 'title'
+      @project.description = 'description'
+      @project.save
+    end
+  end
+
+  def test_uniqueness
+    assert_no_difference('Project.count') do
+      @project.title = 'MyString'
+      @project.description = 'description'
+      @project.save
+    end
   end
 end
