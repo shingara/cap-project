@@ -2,7 +2,7 @@
 
 <%= error_messages_for :task %>
 
-<% form_for(@task) do |f| %>
+<% form_for([@task.project, @task]) do |f| %>
   <p>
     <b>Title</b><br />
     <%= f.text_field :title %>
@@ -23,5 +23,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to 'Show', project_task_path(params[:project_id], @task) %> |
+<%= link_to 'Back', project_tasks_path %>
