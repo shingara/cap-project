@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = Project.find(params[:id])
-    @tasks = Task.paginate :all, :page => params[:page], :per_page => 2
+    @tasks = Task.paginate_by_project_id @project.id, :page => params[:page], :per_page => 2
 
     respond_to do |format|
       format.html # show.html.erb
