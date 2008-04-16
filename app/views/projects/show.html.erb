@@ -13,3 +13,5 @@
 <%= link_to 'Back', projects_path %>
 
 <%= render :partial => "tasks/tasks", :locals => {:tasks => @project.tasks, :project_id => @project.id} %>
+
+<%= link_to "Ajouter Tâche", new_project_task_path(@project) %>
