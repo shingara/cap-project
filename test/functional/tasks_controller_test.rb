@@ -3,8 +3,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 class TasksControllerTest < ActionController::TestCase
   def test_should_get_index
     get :index, :project_id => 1
-    assert_response :success
-    assert_not_nil assigns(:tasks)
+    assert_response :redirect
   end
 
   def test_should_get_new

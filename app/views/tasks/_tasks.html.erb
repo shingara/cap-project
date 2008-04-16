@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Project</th>
+  </tr>
+
+<% for task in tasks %>
+  <tr>
+    <td><%=h task.title %></td>
+    <td><%=h task.description %></td>
+    <td><%=h task.project_id %></td>
+    <td><%= link_to 'Show', project_task_path(project_id, task) %></td>
+    <td><%= link_to 'Edit', edit_project_task_path(project_id, task) %></td>
+    <td><%= link_to 'Destroy', project_task_path(project_id, task), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
