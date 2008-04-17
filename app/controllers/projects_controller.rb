@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+
   # GET /projects
   # GET /projects.xml
   def index

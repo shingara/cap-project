@@ -6,3 +6,4 @@ ruby script/generate scaffold task title:string description:string project_id:in
 rake db:migrate
 rake test
 ./script/plugin install svn://errtheblog.com/svn/plugins/will_paginate
+./script/plugin install http://svn.techno-weenie.net/projects/plugins/restful_authentication/
