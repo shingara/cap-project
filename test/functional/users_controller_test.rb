@@ -60,8 +60,33 @@ class UsersControllerTest < Test::Unit::TestCase
       assert_response :success
     end
   end
-  
 
+  def test_should_no_signup_with_not_logged
+    get :new
+    assert_response :redirect
+    assert_redirected_to :controller => 'sessions', :action => 'new'
+  end
+  
+  def test_should_no_create_with_not_logged
+    create_user
+    assert_response :redirect
+    assert_redirected_to :controller => 'sessions', :action => 'new'
+  end
+
+  def test_should_create_acces_if_no_user
+    User.delete_all
+    assert_difference 'User.count' do
+      create_user
+      assert_response :redirect
+    end
+  end
+  
+  def test_should_signup_acces_if_no_user
+    User.delete_all
+    get :new
+    assert_response :success
+    assert_template 'new'
+  end
   
 
   protected

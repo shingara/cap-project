@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
-  
+
+  skip_before_filter :login_required
+  before_filter :login_required_if_one_user
 
   # render new.rhtml
   def new
@@ -22,6 +24,12 @@ class UsersController < ApplicationController
     else
       render :action => 'new'
     end
+  end
+
+  private
+
+  def login_required_if_one_user
+    login_required if User.count > 0
   end
 
 end
